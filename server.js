@@ -26,8 +26,11 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: process.env.REACT_APP_CLIENT_URL || "http://localhost:3000",
-    methods: ["GET", "POST"]
+    // origin: process.env.REACT_APP_CLIENT_URL || "http://localhost:3000",
+    // methods: ["GET", "POST"]
+    origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   }
 });
 
